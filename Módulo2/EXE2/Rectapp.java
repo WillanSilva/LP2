@@ -2,7 +2,7 @@ public class RectApp {
     public static void main (String[] args) {
         Rect r1 = new Rect(1,1, 10,10); 
         r1.print();
-        System.out.println("Área: "+r1.area());/*coloquei na tela para verificar*/
+        System.out.println("area: "+r1.area());/*coloquei na tela para verificar*/
         r1.drag(20, 70); /*alterei a posição*/
         r1.print();
     }
