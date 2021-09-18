@@ -15,9 +15,7 @@ class Projeto {
 }
 
 class ListFrame extends JFrame {
-    ArrayList<Rect> rec = new ArrayList<Rect>();
-    ArrayList<Ellipse> Eli = new ArrayList<Ellipse>();
-    ArrayList<Polygon> pol=new ArrayList<Polygon>();
+    ArrayList<Figure> fig = new ArrayList<Figure>();
     Random rand = new Random();
     ListFrame () {
         this.addWindowListener (
@@ -50,12 +48,12 @@ class ListFrame extends JFrame {
                     }
                     if (evt.getKeyChar() == 'r'  || evt.getKeyChar() == 'R' ) {
                         Rect retangulo = new Rect(x,y,w,h,r,g,b,r2,g2,b2);
-                        rec.add(retangulo);
+                        fig.add(retangulo);
                     } else if (evt.getKeyChar() == 'e'  || evt.getKeyChar() == 'E' ) {
-                        Eli.add(new Ellipse(x,y,w,h,r,g,b,r2,g2,b2));
+                        fig.add(new Ellipse(x,y,w,h,r,g,b,r2,g2,b2));
                     }
                     else if (evt.getKeyChar() == 'P'  || evt.getKeyChar() == 'p' ) {
-                        pol.add(new Polygon(xPoint,yPoint,p,r,g,b,r2,g2,b2));
+                        fig.add(new Polygon(xPoint,yPoint,p,r,g,b,r2,g2,b2));
                     }
                     repaint();
                 }
@@ -68,14 +66,8 @@ class ListFrame extends JFrame {
 
     public void paint (Graphics g) {
         super.paint(g);
-        for (Ellipse Eli: this.Eli) {
-            Eli.paint(g);
-        }
-        for (Rect rec: this.rec) {
-            rec.paint(g);
-        }
-        for (Polygon pol: this.pol) {
-            pol.paint(g);
+        for (Figure fig: this.fig) {
+            fig.paint(g);
         }
     }
 }
