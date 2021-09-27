@@ -7,8 +7,6 @@ public abstract class Figure{
     protected int w, h;
     protected int r,g,b; /*cor de fundo*/
     protected int r2, g2, b2;/*cor da linha*/
-    protected int[] xPoint,yPoint; /* a classe Polygon é diferente da demais portanto criei 2 construtor */
-    protected int p;
     public Figure(int x, int y, int w, int h,int r, int g, int b,int r2, int g2, int b2){
         this.x = x;
         this.y = y;
@@ -22,10 +20,7 @@ public abstract class Figure{
         this.b2 = b2;
     }
    /*para o Polygon*/ 
-    public Figure(int[] x, int[] y,int p, int r, int g, int b,int r2, int g2, int b2){
-        this.xPoint=x;
-        this.yPoint=y;
-        this.p=p;
+    public Figure(int r, int g, int b,int r2, int g2, int b2){
         this.r = r;
         this.g = g;
         this.b = b;
