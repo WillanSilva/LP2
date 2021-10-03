@@ -59,8 +59,21 @@ class ListFrame extends JFrame {
                 }
             }
         );
+        this.addMouseListener (
+            new MouseAdapter() {
+                public void mousePressed (MouseEvent evt) {
+                    int x = evt.getX();
+                    int y = evt.getY();
+                    for (Figure fig: fig) {
+                        if (fig.clicked(x,y)) {
+                            System.out.println("CLICKED");
+                        }
+                    }
+                }
+            }
+        );
 
-        this.setTitle("Lista de Figuras");
+        this.setTitle("Iterface IVisible");
         this.setSize(350, 350);
     }
 
