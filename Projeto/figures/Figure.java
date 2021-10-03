@@ -29,5 +29,12 @@ public abstract class Figure{
         this.b2 = b2;
 
     }
+    public void drag (int dx, int dy) {
+        this.x += dx;
+        this.y += dy;
+    }
+    public boolean clicked (int x, int y) {
+        return (this.x<=x && x<=this.x+this.w && this.y<=y && y<=this.y+this.h);
+    }
     public abstract void paint(Graphics g);
 }
