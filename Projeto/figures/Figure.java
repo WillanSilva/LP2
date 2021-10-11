@@ -29,12 +29,27 @@ public abstract class Figure{
         this.b2 = b2;
 
     }
+    public int[] get() {
+        int[] cores = new int[3];
+        cores[0]=this.r2;
+        cores[1]=this.g2;
+        cores[2]=this.b2;
+        return cores;
+    }
+    public void set(int[] cores) {
+        this.r2=cores[0];
+        this.g2=cores[1];
+        this.b2=cores[2];
+        System.out.println("Passou");
+    }
     public void drag (int dx, int dy) {
-        this.x += dx;
-        this.y += dy;
+        this.x = dx;
+        this.y = dy;
     }
     public boolean clicked (int x, int y) {
+        System.out.println("cliquei");
         return (this.x<=x && x<=this.x+this.w && this.y<=y && y<=this.y+this.h);
+
     }
     public abstract void paint(Graphics g);
 }
