@@ -24,9 +24,10 @@ Clicar sobre a figura em foco e pressionar C, e No terminal colocar as cores que
 Exemplo:</br>
 Estou com a figura em foco e quero trocar para vermelho </br>
 Pressiono C, e digito no terminal: </br>
-255
-0
-0
+255 </br>
+0 </br>
+0 </br>
+
 
 
 
