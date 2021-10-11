@@ -2,7 +2,7 @@
 
 <p>Para adicionar * Polygon * -> tecla P;</br>
 Para adicionar * Elipse *  -> tecla e;</br>
-Para adicionar *Retangulo* -> tecla r;</br>
+Para adicionar <em>Retangulo</em> -> tecla r;</br>
 Para adicionar *Triângulo* -> tecla t;</br>
 </p>
 <p>
