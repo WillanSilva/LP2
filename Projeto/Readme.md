@@ -20,10 +20,8 @@ Clicar sobre parte da janela que não tenha nenhuma figura.
 Para Trocar de Cor de Fundo da Figura em foco:
   
 Clicar sobre a figura em foco e pressionar C, e No terminal colocar as cores que desejar em RGB</br>
-Exemplo:
-
+Exemplo:</br>
 Estou com a figura em foco e quero trocar para vermelho </br>
-
 Pressiono C, e digito no terminal: </br>
 255
 0
