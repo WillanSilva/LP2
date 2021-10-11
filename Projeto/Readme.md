@@ -1,7 +1,7 @@
 <p>*Figuras:* polygon com 5 lados, Retangulo, elipse e triangulo.</p>
 
-<p>Para adicionar *Polygon* -> tecla P;</br>
-Para adicionar *Elipse*  -> tecla e;</br>
+<p>Para adicionar * Polygon * -> tecla P;</br>
+Para adicionar * Elipse *  -> tecla e;</br>
 Para adicionar *Retangulo* -> tecla r;</br>
 Para adicionar *Triângulo* -> tecla t;</br>
 </p>
