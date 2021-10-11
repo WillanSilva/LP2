@@ -42,10 +42,15 @@ class ListFrame extends JFrame {
                     int b2=rand.nextInt(255);
                     int [] xPoint=new int[3];
                     int [] yPoint=new int[3];
-                    int p=3;
+                    int [] x2Point=new int[5];
+                    int [] y2Point=new int[5];
                     for (int i=0;i<3;++i){
                         xPoint[i]=rand.nextInt(350);
                         yPoint[i]=rand.nextInt(350);
+                    }
+                    for (int i=0;i<5;++i){
+                        x2Point[i]=rand.nextInt(350);
+                        y2Point[i]=rand.nextInt(350);
                     }
                     if (evt.getKeyChar() == 'r'  || evt.getKeyChar() == 'R' ) {
                         Rect retangulo = new Rect(x,y,w,h,r,g,b,r2,g2,b2);
@@ -53,8 +58,11 @@ class ListFrame extends JFrame {
                     } else if (evt.getKeyChar() == 'e'  || evt.getKeyChar() == 'E' ) {
                         fig.add(new Ellipse(x,y,w,h,r,g,b,r2,g2,b2));
                     }
-                    else if (evt.getKeyChar() == 'P'  || evt.getKeyChar() == 'p' ) {
-                        fig.add(new Polygon(xPoint,yPoint,p,r,g,b,r2,g2,b2));
+                    else if (evt.getKeyChar() == 't'  || evt.getKeyChar() == 'T' ) {
+                        fig.add(new Polygon(xPoint,yPoint,3,r,g,b,r2,g2,b2));
+                    }
+                     else if (evt.getKeyChar() == 'P'  || evt.getKeyChar() == 'p' ) {
+                        fig.add(new Polygon(x2Point,y2Point,5,r,g,b,r2,g2,b2));
                     }
                     else if ((evt.getKeyChar() == 'd'  || evt.getKeyChar() == 'D' ) && focus!=null) {
                         fig.remove(focus);
