@@ -4,6 +4,7 @@
 Para adicionar <em>Elipse </em>  -> tecla e;</br>
 Para adicionar <em>Retangulo</em> -> tecla r;</br>
 Para adicionar <em>Triângulo</em> -> tecla t;</br>
+Para trocar de cor de fundo  -> tecla c; e digitar a cor em RGB;</br>
 </p>
 <p>
 Para arrastar:</br>
