@@ -1,4 +1,4 @@
-<p>*Figuras:* polygon com 5 lados, Retangulo, elipse e triangulo.</p>
+<p><em>Figuras:</em> polygon com 5 lados, Retangulo, elipse e triangulo.</p>
 
 <p>Para adicionar <em>Polygon</em> -> tecla P;</br>
 Para adicionar <em>Elipse </em>  -> tecla e;</br>
