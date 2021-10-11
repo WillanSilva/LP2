@@ -1,6 +1,7 @@
 Figuras: polygon com 5 lados, Retangulo, elipse e triangulo.
 
 Para adicionar Polygon -> tecla P;
+
 Para adicionar Elipse  -> tecla e;
 Para adicionar Retangulo -> tecla r;
 Para adicionar Triângulo -> tecla t;
