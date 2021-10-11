@@ -36,10 +36,15 @@ public abstract class Figure{
         cores[2]=this.b2;
         return cores;
     }
-    public void set(int[] cores) {
+    public void set_contorno(int[] cores) {
         this.r2=cores[0];
         this.g2=cores[1];
         this.b2=cores[2];
+    }
+    public void set_fundo(int[] cores) {
+        this.r=cores[0];
+        this.g=cores[1];
+        this.b=cores[2];
     }
     public void drag (int dx, int dy) {
         this.x = dx;
