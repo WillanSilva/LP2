@@ -3,7 +3,7 @@
 <p>Para adicionar <em>Polygon</em> -> tecla P;</br>
 Para adicionar <em>Elipse </em>  -> tecla e;</br>
 Para adicionar <em>Retangulo</em> -> tecla r;</br>
-Para adicionar <em>Triângulo<em> -> tecla t;</br>
+Para adicionar <em>Triângulo<em/> -> tecla t;</br>
 </p>
 <p>
 Para arrastar:</br>
