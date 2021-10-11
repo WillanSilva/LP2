@@ -3,6 +3,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import figures.*;
 import figures.Polygon;
+import java.util.Scanner;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -18,6 +19,7 @@ class ListFrame extends JFrame {
     ArrayList<Figure> fig = new ArrayList<Figure>();
     Random rand = new Random();
     Figure focus;
+    
     int[] rgb = new int[3];
     ListFrame () {
         this.addWindowListener (
@@ -67,6 +69,15 @@ class ListFrame extends JFrame {
                     else if ((evt.getKeyChar() == 'd'  || evt.getKeyChar() == 'D' ) && focus!=null) {
                         fig.remove(focus);
                     }
+                    else if ((evt.getKeyChar() == 'C'  || evt.getKeyChar() == 'c') &&focus!=null ) {
+                        Scanner sc = new Scanner(System.in);
+                           int [] senha = new int [3];
+                          System.out.println("Digite os números:");
+                          for(int i=0;i<3;i++){
+                            senha[i] = sc.nextInt();
+                          }
+                          focus.set_fundo(senha);
+                    }
                     repaint();
                 }
             }
@@ -82,14 +93,14 @@ class ListFrame extends JFrame {
                            rgb[0]=255; 
                            rgb[1]=0;
                            rgb[2]=0;
-                           cores1.set(rgb);
+                           cores1.set_contorno(rgb);
                            repaint();
                         }
                         else{
                             rgb[0]=0;
                             rgb[1]=0;
                             rgb[2]=0;
-                            cores1.set(rgb);
+                            cores1.set_contorno(rgb);
                         }
                     }
                 }
