@@ -1,12 +1,12 @@
-<p>***Figuras:*** polygon com 5 lados, Retangulo, elipse e triangulo.</p>
+<p>Figuras: polygon com 5 lados, Retangulo, elipse e triangulo.</p>
 
-Para adicionar Polygon -> tecla P;
+<p>Para adicionar Polygon -> tecla P;</p>
 
 Para adicionar Elipse  -> tecla e;
 Para adicionar Retangulo -> tecla r;
 Para adicionar Triângulo -> tecla t;
 
-Para arrastar:
+<p>Para arrastar:</p>
 
 Clicar como o cursor do mouse sobre a figura desejada e arrastar para o local da janela desejado.
 
