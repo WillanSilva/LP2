@@ -71,12 +71,11 @@ class ListFrame extends JFrame {
                     }
                     else if ((evt.getKeyChar() == 'C'  || evt.getKeyChar() == 'c') &&focus!=null ) {
                         Scanner sc = new Scanner(System.in);
-                           int [] senha = new int [3];
-                          System.out.println("Digite os números:");
+                          System.out.println("Digite os números(RGB):");
                           for(int i=0;i<3;i++){
-                            senha[i] = sc.nextInt();
+                            rgb[i] = sc.nextInt();
                           }
-                          focus.set_fundo(senha);
+                          focus.set_fundo(rgb);
                     }
                     repaint();
                 }
