@@ -2,7 +2,9 @@ package figures;
 
 import java.awt.Graphics;
 
-public abstract class Figure{
+import ivisible.ivisible;
+
+public abstract class Figure implements ivisible{
     protected int x, y;
     protected int w, h;
     protected int r,g,b; /*cor de fundo*/
@@ -51,6 +53,7 @@ public abstract class Figure{
         this.y = dy;
     }
     public boolean clicked (int x, int y) {
+        System.out.println("clicou");
         return (this.x<=x && x<=this.x+this.w && this.y<=y && y<=this.y+this.h);
 
     }
