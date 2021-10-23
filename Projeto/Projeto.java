@@ -61,11 +61,11 @@ class ListFrame extends JFrame {
                         fig.add(new Ellipse(x,y,w,h,r,g,b,r2,g2,b2));
                     }
                     else if (evt.getKeyChar() == 't'  || evt.getKeyChar() == 'T' ) {
-                        fig.add(new Polygon(xPoint,yPoint,3,r,g,b,r2,g2,b2));
+                        fig.add(new Triang(x,y,w,h,r,g,b,r2,g2,b2));
                     }
-                     else if (evt.getKeyChar() == 'P'  || evt.getKeyChar() == 'p' ) {
+                    /*else if (evt.getKeyChar() == 'P'  || evt.getKeyChar() == 'p' ) {
                         fig.add(new Polygon(x2Point,y2Point,5,r,g,b,r2,g2,b2));
-                    }
+                    }*/
                     else if ((evt.getKeyChar() == 'd'  || evt.getKeyChar() == 'D' ) && focus!=null) {
                         fig.remove(focus);
                     }
