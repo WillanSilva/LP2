@@ -5,7 +5,7 @@ import java.awt.Graphics;
 import ivisible.ivisible;
 
 public abstract class Figure implements ivisible{
-    protected int x, y;
+    protected  int x, y;
     protected int w, h;
     protected int r,g,b; /*cor de fundo*/
     protected int r2, g2, b2;/*cor da linha*/
