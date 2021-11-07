@@ -8,7 +8,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Random;
 
-class Projeto {
+public class Projeto {
     public static void main (String[] args) {
         ListFrame frame = new ListFrame();
         frame.setVisible(true);
@@ -19,7 +19,6 @@ class ListFrame extends JFrame {
     ArrayList<Figure> fig = new ArrayList<Figure>();
     Random rand = new Random();
     Figure focus;
-    
     int[] rgb = new int[3];
     ListFrame () {
         this.addWindowListener (
