@@ -14,11 +14,13 @@ public class Projeto {
         frame.setVisible(true);
     }
 }
-
 class ListFrame extends JFrame {
     ArrayList<Figure> fig = new ArrayList<Figure>();
     Random rand = new Random();
-    Figure focus;
+    Figure focus=null;
+    int xmouse;
+    int ymouse;
+    int x;int y;
     int[] rgb = new int[3];
     ListFrame () {
         this.addWindowListener (
@@ -28,11 +30,53 @@ class ListFrame extends JFrame {
                 }
             }
         );
+        this.addMouseListener (
+            new MouseAdapter() {
+                public void mousePressed (MouseEvent evt) {
+                    focus=null;
+                    xmouse = evt.getX();
+                    ymouse = evt.getY();
+                    for (Figure cores1: fig) {
+                        if (cores1.clicked(xmouse,ymouse)) {
+                           focus=cores1;
+                           rgb[0]=255; 
+                           rgb[1]=0;
+                           rgb[2]=0;
+                           cores1.set_contorno(rgb);
+                        }
+                        else{
+                            rgb[0]=0;
+                            rgb[1]=0;
+                            rgb[2]=0;
+                            cores1.set_contorno(rgb);
+                        }
+                      repaint();
+                    }
+                }
+            }
+        );
+        this.addMouseMotionListener(
+            new MouseMotionAdapter(){
+                public void mouseDragged(MouseEvent evt){
+                  int dx = evt.getX();
+                  int dy = evt.getY();
+                  if(focus != null){
+                    focus.drag(dx-xmouse,dy-ymouse);
+                    xmouse=dx;
+                    ymouse=dy;
+                  }
+                  repaint();
+                }
+              public void mouseMoved(MouseEvent e){
+                x=e.getX();
+                y=e.getY();
+              }
+            }
+
+        );
         this.addKeyListener (
             new KeyAdapter() {
                 public void keyPressed (KeyEvent evt) {
-                    int x = rand.nextInt(350);
-                    int y = rand.nextInt(350);
                     int w = rand.nextInt(50);
                     int h = rand.nextInt(50);
                     int r=rand.nextInt(255);
@@ -68,6 +112,9 @@ class ListFrame extends JFrame {
                     else if ((evt.getKeyChar() == 'd'  || evt.getKeyChar() == 'D' ) && focus!=null) {
                         fig.remove(focus);
                     }
+                     else if ((evt.getKeyChar() == 'L'  || evt.getKeyChar() == 'l' ) && focus!=null) {
+                        fig.add(new Losang(x,y,w,h,r,g,b,r2,g2,b2));
+                    }
                     else if ((evt.getKeyChar() == 'C'  || evt.getKeyChar() == 'c') &&focus!=null ) {
                         Scanner sc = new Scanner(System.in);
                           System.out.println("Digite os números(RGB):");
@@ -79,48 +126,6 @@ class ListFrame extends JFrame {
                     repaint();
                 }
             }
-        );
-        this.addMouseListener (
-            new MouseAdapter() {
-                public void mousePressed (MouseEvent evt) {
-                    int x = evt.getX();
-                    int y = evt.getY();
-                    for (Figure cores1: fig) {
-                        if (cores1.clicked(x,y)) {
-                           focus=cores1;
-                           rgb[0]=255; 
-                           rgb[1]=0;
-                           rgb[2]=0;
-                           cores1.set_contorno(rgb);
-                           repaint();
-                        }
-                        else{
-                            rgb[0]=0;
-                            rgb[1]=0;
-                            rgb[2]=0;
-                            cores1.set_contorno(rgb);
-                        }
-                    }
-                }
-            }
-        );
-        this.addMouseMotionListener(
-            new MouseMotionAdapter(){
-                public void mouseDragged(MouseEvent evt){
-                    for(Figure cores: fig){
-                        int dx = evt.getX();
-                        int dy = evt.getY();
-                        if(focus == cores){
-                            cores.drag(dx,dy);
-                            repaint();
-                        }
-                    }
-                }
-                public void mouseMoved(MouseEvent evt){
-                    focus=null;
-                }
-            }
-
         );
         this.setTitle("Iterface IVisible");
         this.setSize(350, 350);
