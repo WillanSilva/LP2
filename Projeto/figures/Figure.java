@@ -31,7 +31,14 @@ public abstract class Figure implements ivisible{
         this.b2 = b2;
 
     }
-    public int[] get() {
+    public int get_x() {
+        return this.x;
+    }
+
+    public int get_y() {
+        return this.y;
+    }
+    public int[] get_contorno() {
         int[] cores = new int[3];
         cores[0]=this.r2;
         cores[1]=this.g2;
@@ -49,11 +56,10 @@ public abstract class Figure implements ivisible{
         this.b=cores[2];
     }
     public void drag (int dx, int dy) {
-        this.x = dx;
-        this.y = dy;
+        this.x += dx;
+        this.y += dy;
     }
     public boolean clicked (int x, int y) {
-        System.out.println("clicou");
         return (this.x<=x && x<=this.x+this.w && this.y<=y && y<=this.y+this.h);
 
     }
