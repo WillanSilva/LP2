@@ -1,12 +1,17 @@
-class LinkedStack  extend LinkedList implements IStackable{
-    l=new LinkedList();
-    public int  size (void){
-      return size.l;
+import java.util.*;  
+class LinkedStack implements IStackable{
+    LinkedList<Integer> l;
+    public LinkedStack(){
+      this.l=new LinkedList<>();
+    }
+    public int  size (){
+      return l.size();
     }       // quantos elementos
     public void push (int v){
-      this.l.addFist();
+      l.addFirst(v);
     }  // empilha inteiro
-    public int  pop  (void ){
-      return l.removeFist();
-    }
+    public int  pop (){
+      return  l.removeFirst(); 
+    }       // quantos elementos
+    
 }
