@@ -1,12 +1,11 @@
-import ivisible.IVisible;
+import ivisible.*;
 import figures.Figure;
 import java.awt.*;
 
 public class Button implements IVisible {
-    static int SPC = 20;
-    static int DIM = 40;
+    static int SPC = 25;
+    static int DIM = 20;
     static int PAD = 4;
-
     public  int    idx;
     private Figure fig;
 
@@ -25,13 +24,10 @@ public class Button implements IVisible {
 
     public void paint (Graphics g, boolean focused) {
         Graphics2D g2d = (Graphics2D) g;
-
-        g2d.setColor(focused ? Color.GRAY : Color.LIGHT_GRAY);
+        g2d.setColor(focused ? Color.GRAY :Color.LIGHT_GRAY);
         g2d.fillRect(SPC, SPC+this.idx*DIM, DIM, DIM);
-
         g2d.setColor(Color.BLACK);
         g2d.drawRect(SPC, SPC+this.idx*DIM, DIM, DIM);
-
-        this.fig.paint(g, false);
+        this.fig.paint   (g,false);
     }
 }
