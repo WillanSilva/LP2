@@ -2,11 +2,11 @@ package figures;
 
 import java.awt.Graphics;
 
-import ivisible.ivisible;
-
-public abstract class Figure implements ivisible{
-    protected  int x, y;
-    protected int w, h;
+import ivisible.IVisible;
+import java.io.Serializable;
+public abstract class Figure implements IVisible, Serializable{
+    public  int x, y;
+    public int w, h;
     protected int r,g,b; /*cor de fundo*/
     protected int r2, g2, b2;/*cor da linha*/
     public Figure(int x, int y, int w, int h,int r, int g, int b,int r2, int g2, int b2){
@@ -63,5 +63,5 @@ public abstract class Figure implements ivisible{
         return (this.x<=x && x<=this.x+this.w && this.y<=y && y<=this.y+this.h);
 
     }
-    public abstract void paint(Graphics g);
+    public abstract void paint(Graphics g, boolean focused);
 }
