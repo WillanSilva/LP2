@@ -12,7 +12,7 @@ public class Polygon extends Figure{
     public void print () {
         System.out.format("na posicao (%d,%d) com %d pontos (vértices).\n",this.x, this.y,this.p);
     }
-    public void paint (Graphics g) {
+    public void paint (Graphics g,boolean focused) {
         Graphics2D g2d = (Graphics2D) g; 
         g2d.setColor(new Color(r,this.g,b));
         g2d.fillPolygon(this.xPoint, this.yPoint,this.p);
