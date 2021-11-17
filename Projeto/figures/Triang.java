@@ -8,7 +8,7 @@ public class Triang extends Figure{
         System.out.format("Triangulo de tamanho (%d,%d) na posicao (%d,%d).\n",
             this.w, this.h, this.x, this.y);
     }
-    public void paint (Graphics g) {
+    public void paint (Graphics g, boolean focused) {
         int [] xPoint= {this.w/2 + this.x, this.x,this.w + this.x};
         int [] yPoint= {this.y, this.y + this.h,this.y + this.h};
         Graphics2D g2d = (Graphics2D) g; 
