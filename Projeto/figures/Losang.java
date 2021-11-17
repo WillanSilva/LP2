@@ -8,7 +8,7 @@ public class Losang extends Figure{
         System.out.format("Retangulo de tamanho (%d,%d) na posicao (%d,%d).\n",
             this.w, this.h, this.x, this.y);
     }
-    public void paint (Graphics g) {
+    public void paint (Graphics g,boolean focused) {
         int [] xPoint= {this.x, this.x, this.x};
         int [] yPoint= {this.y, (this.y + this.h)/2,this.y + this.h};
         Graphics2D g2d = (Graphics2D) g; 
