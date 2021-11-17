@@ -4,7 +4,7 @@ import javax.swing.*;
 import figures.*;
 import figures.Polygon;
 import java.util.Scanner;
-
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -16,23 +16,54 @@ public class Projeto {
 }
 class ListFrame extends JFrame {
     ArrayList<Figure> fig = new ArrayList<Figure>();
+    ArrayList<Button> buton = new ArrayList<Button>();
     Random rand = new Random();
     Figure focus=null;
+    Button focus_b=null;
     int xmouse;
     int ymouse;
     int x;int y;
+    int w;int h; int r,g,b; int r2,g2,b2;
     int[] rgb = new int[3];
     ListFrame () {
+          try{
+                FileInputStream f= new FileInputStream ("proj.bin");
+                ObjectInputStream o = new ObjectInputStream(f);
+                this.fig=(ArrayList<Figure>) o.readObject();
+                o.close();
+                } catch(Exception x){
+                System.out.println("ERRO");
+              }
         this.addWindowListener (
             new WindowAdapter() {
                 public void windowClosing (WindowEvent e) {
+                  try{
+                    FileOutputStream f= new FileOutputStream ("proj.bin");
+                    ObjectOutputStream o = new ObjectOutputStream(f);
+                    o.writeObject(fig);
+                    o.flush();
+                    o.close();
+                  } catch(Exception x ){
+                  }
                     System.exit(0);
                 }
             }
         );
+        buton.add(new Button(0,new Rect(0,0,0,0,0,0,0,0,0,0)));
+        buton.add(new Button(1,new Ellipse(0, 0, 0, 0,0,0,0,0,0,0)));
+        buton.add(new Button(2,new Triang(0, 0, 00, 0,0,0,0,0,0,0)));
+        
         this.addMouseListener (
             new MouseAdapter() {
                 public void mousePressed (MouseEvent evt) {
+                    w = rand.nextInt(50);
+                    h = rand.nextInt(50);
+                    r=rand.nextInt(255);
+                    g=rand.nextInt(255);
+                    b=rand.nextInt(255);
+                    r2=rand.nextInt(255);
+                    g2=rand.nextInt(255);
+                    b2=rand.nextInt(255);
                     focus=null;
                     xmouse = evt.getX();
                     ymouse = evt.getY();
@@ -50,10 +81,34 @@ class ListFrame extends JFrame {
                             rgb[2]=0;
                             cores1.set_contorno(rgb);
                         }
-                      repaint();
                     }
-                }
+                  repaint();
+                  for (Button but: buton) {
+                    if(but.clicked(xmouse,ymouse)){
+                      if(focus_b==null){focus_b=but;}
+                      else{focus_b=null;}
+                      
+                    }
+                    else if (but.clicked(xmouse,ymouse) && focus!=null){
+                      focus_b=null;
+                    }
+                  }
+                    if(focus_b!=null){
+                      if(focus_b.idx==0){
+                      Rect retangulo = new Rect(xmouse,ymouse,w,h,r,g,b,r2,g2,b2);
+                      fig.add(retangulo);
+                    }
+                    else if(focus_b.idx==1){
+                      fig.add(new Ellipse(xmouse,ymouse,w,h,r,g,b,r2,g2,b2));
+                    }
+                    else if (focus_b.idx==2){
+                      fig.add(new Triang(xmouse,ymouse,w,h,r,g,b,r2,g2,b2));
+                    }
+                  }
+                
+                repaint();
             }
+          }
         );
         this.addMouseMotionListener(
             new MouseMotionAdapter(){
@@ -64,8 +119,8 @@ class ListFrame extends JFrame {
                     focus.drag(dx-xmouse,dy-ymouse);
                     xmouse=dx;
                     ymouse=dy;
+                    repaint();
                   }
-                  repaint();
                 }
               public void mouseMoved(MouseEvent e){
                 x=e.getX();
@@ -77,14 +132,6 @@ class ListFrame extends JFrame {
         this.addKeyListener (
             new KeyAdapter() {
                 public void keyPressed (KeyEvent evt) {
-                    int w = rand.nextInt(50);
-                    int h = rand.nextInt(50);
-                    int r=rand.nextInt(255);
-                    int g=rand.nextInt(255);
-                    int b=rand.nextInt(255);
-                    int r2=rand.nextInt(255);
-                    int g2=rand.nextInt(255);
-                    int b2=rand.nextInt(255);
                     int [] xPoint=new int[3];
                     int [] yPoint=new int[3];
                     int [] x2Point=new int[5];
@@ -133,7 +180,10 @@ class ListFrame extends JFrame {
     public void paint (Graphics g) {
         super.paint(g);
         for (Figure fig: this.fig) {
-            fig.paint(g);
+            fig.paint(g,false);
+        }
+        for (Button but: this.buton) {
+            but.paint(g,but==focus_b);
         }
     }
 }
