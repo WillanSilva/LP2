@@ -10,13 +10,11 @@ public class Ellipse extends Figure{
             this.w, this.h, this.x, this.y);
     }
     @Override
-    public void paint(Graphics g) {
+    public void paint(Graphics g,boolean focused) {
         Graphics2D g2d = (Graphics2D) g; 
         g2d.setColor(new Color(r,this.g,b));
         g2d.fillOval(this.x,this.y,this.w,this.h);
         g2d.setColor(new Color(r2,g2,b2));
         g2d.drawOval(this.x,this.y,this.w,this.h);
-        
     }
-
 }
