@@ -8,8 +8,13 @@ public class Rect extends Figure{
         System.out.format("Retangulo de tamanho (%d,%d) na posicao (%d,%d).\n",
             this.w, this.h, this.x, this.y);
     }
-    public void paint (Graphics g) {
-        Graphics2D g2d = (Graphics2D) g; 
+    public void paint (Graphics g, boolean focused) {
+      Graphics2D g2d = (Graphics2D) g; 
+        if (focused) {
+            g2d.setPaint(Color.RED);
+            g2d.fillRect(this.x-2,this.y-2, this.w+4,this.h+4);
+        }
+        
         g2d.setColor(new Color(r,this.g,b));
         g2d.fillRect(this.x,this.y, this.w,this.h);
         g2d.setColor(new Color(r2,g2,b2));
