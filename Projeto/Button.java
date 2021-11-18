@@ -21,12 +21,18 @@ public class Button implements IVisible {
     public boolean clicked (int x, int y) {
         return SPC<=x && x<=SPC+DIM && SPC+this.idx*DIM<=y && y<=SPC+this.idx*DIM+DIM;
     }
-
     public void paint (Graphics g, boolean focused) {
         Graphics2D g2d = (Graphics2D) g;
-        g2d.setColor(focused ? Color.GRAY :Color.LIGHT_GRAY);
-        g2d.fillRect(SPC, SPC+this.idx*DIM, DIM, DIM);
-        g2d.setColor(Color.BLACK);
+        if(this.idx==4){
+          g2d.setColor(focused ? Color.RED :Color.WHITE);
+          g2d.fillRect(SPC, SPC+this.idx*DIM, DIM, DIM);
+          g2d.setColor(Color.GREEN);
+        }
+        else{
+          g2d.setColor(focused ? Color.GREEN :Color.GRAY);
+          g2d.fillRect(SPC, SPC+this.idx*DIM, DIM, DIM);
+          g2d.setColor(Color.GREEN);
+        }
         g2d.drawRect(SPC, SPC+this.idx*DIM, DIM, DIM);
         this.fig.paint   (g,false);
     }
