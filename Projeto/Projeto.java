@@ -53,6 +53,7 @@ class ListFrame extends JFrame {
         buton.add(new Button(1,new Ellipse(0, 0, 0, 0,0,0,0,0,0,0)));
         buton.add(new Button(2,new Triang(0, 0, 00, 0,0,0,0,0,0,0)));
         buton.add(new Button(3,new Losang(0, 0, 00, 0,0,0,0,0,0,0)));
+        buton.add(new Button(4,new Rect(0, 0, 00, 0,0,0,0,0,0,0)));
         this.addMouseListener (
             new MouseAdapter() {
                 public void mousePressed (MouseEvent evt) {
@@ -87,13 +88,9 @@ class ListFrame extends JFrame {
                     if(but.clicked(xmouse,ymouse)){
                       if(focus_b==null){focus_b=but;}
                       else{focus_b=null;}
-                      
-                    }
-                    else if (but.clicked(xmouse,ymouse) && focus!=null){
-                      focus_b=null;
                     }
                   }
-                    if(focus_b!=null){
+                    if(focus_b!=null && focus_b.clicked(xmouse,ymouse)!=true){
                       if(focus_b.idx==0){
                       Rect retangulo = new Rect(xmouse,ymouse,w,h,r,g,b,r2,g2,b2);
                       fig.add(retangulo);
@@ -106,6 +103,9 @@ class ListFrame extends JFrame {
                     }
                     else if (focus_b.idx==3){
                       fig.add(new Losang(xmouse,ymouse,w,h,r,g,b,r2,g2,b2));
+                    }
+                    else if (focus_b.idx==4 && focus!=null){
+                      fig.remove(focus);
                     }
                   }
                 
