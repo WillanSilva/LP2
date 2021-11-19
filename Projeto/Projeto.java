@@ -7,7 +7,7 @@ import java.util.Scanner;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
-
+import java.util.Collections;
 public class Projeto {
     public static void main (String[] args) {
         ListFrame frame = new ListFrame();
@@ -68,13 +68,16 @@ class ListFrame extends JFrame {
                     focus=null;
                     xmouse = evt.getX();
                     ymouse = evt.getY();
+                    int indx=0;
                     for (Figure cores1: fig) {
                         if (cores1.clicked(xmouse,ymouse)) {
+                           indx=fig.indexOf(cores1);
+                           //System.out.println(indx);
                            focus=cores1;
-                           rgb[0]=255; 
-                           rgb[1]=0;
-                           rgb[2]=0;
-                           cores1.set_contorno(rgb);
+                           rgb[0]=0;
+                          rgb[1]=0;
+                          rgb[2]=0;
+                          focus.set_contorno(rgb);
                         }
                         else{
                             rgb[0]=0;
@@ -82,7 +85,13 @@ class ListFrame extends JFrame {
                             rgb[2]=0;
                             cores1.set_contorno(rgb);
                         }
-                    }
+                  }
+                  if(focus!=null){
+                    rgb[0]=255; 
+                    rgb[1]=0;
+                    rgb[2]=0;
+                    focus.set_contorno(rgb);
+                  }
                   repaint();
                   for (Button but: buton) {
                     if(but.clicked(xmouse,ymouse)){
@@ -94,15 +103,19 @@ class ListFrame extends JFrame {
                       if(focus_b.idx==0){
                       Rect retangulo = new Rect(xmouse,ymouse,w,h,r,g,b,r2,g2,b2);
                       fig.add(retangulo);
+                      focus=fig.get(fig.size()-1);
                     }
                     else if(focus_b.idx==1){
                       fig.add(new Ellipse(xmouse,ymouse,w,h,r,g,b,r2,g2,b2));
+                      focus=fig.get(fig.size()-1);
                     }
                     else if (focus_b.idx==2){
                       fig.add(new Triang(xmouse,ymouse,w,h,r,g,b,r2,g2,b2));
+                      focus=fig.get(fig.size()-1);
                     }
                     else if (focus_b.idx==3){
                       fig.add(new Losang(xmouse,ymouse,w,h,r,g,b,r2,g2,b2));
+                      focus=fig.get(fig.size()-1);
                     }
                     else if (focus_b.idx==4 && focus!=null){
                       fig.remove(focus);
