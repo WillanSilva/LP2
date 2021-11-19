@@ -101,20 +101,20 @@ class ListFrame extends JFrame {
                   }
                     if(focus_b!=null && focus_b.clicked(xmouse,ymouse)!=true){
                       if(focus_b.idx==0){
-                      Rect retangulo = new Rect(xmouse,ymouse,w,h,r,g,b,r2,g2,b2);
+                      Rect retangulo = new Rect(xmouse,ymouse,w,h,r,g,b,0,0,0);
                       fig.add(retangulo);
                       focus=fig.get(fig.size()-1);
                     }
                     else if(focus_b.idx==1){
-                      fig.add(new Ellipse(xmouse,ymouse,w,h,r,g,b,r2,g2,b2));
+                      fig.add(new Ellipse(xmouse,ymouse,w,h,r,g,b,0,0,0));
                       focus=fig.get(fig.size()-1);
                     }
                     else if (focus_b.idx==2){
-                      fig.add(new Triang(xmouse,ymouse,w,h,r,g,b,r2,g2,b2));
+                      fig.add(new Triang(xmouse,ymouse,w,h,r,g,b,0,0,0));
                       focus=fig.get(fig.size()-1);
                     }
                     else if (focus_b.idx==3){
-                      fig.add(new Losang(xmouse,ymouse,w,h,r,g,b,r2,g2,b2));
+                      fig.add(new Losang(xmouse,ymouse,w,h,r,g,b,0,0,0));
                       focus=fig.get(fig.size()-1);
                     }
                     else if (focus_b.idx==4 && focus!=null){
