@@ -164,11 +164,14 @@ class ListFrame extends JFrame {
                     if (evt.getKeyChar() == 'r'  || evt.getKeyChar() == 'R' ) {
                         Rect retangulo = new Rect(x,y,w,h,r,g,b,r2,g2,b2);
                         fig.add(retangulo);
+                        focus=fig.get(fig.size()-1);
                     } else if (evt.getKeyChar() == 'e'  || evt.getKeyChar() == 'E' ) {
                         fig.add(new Ellipse(x,y,w,h,r,g,b,r2,g2,b2));
+                        focus=fig.get(fig.size()-1);
                     }
                     else if (evt.getKeyChar() == 't'  || evt.getKeyChar() == 'T' ) {
                         fig.add(new Triang(x,y,w,h,r,g,b,r2,g2,b2));
+                        focus=fig.get(fig.size()-1);
                     }
                     /*else if (evt.getKeyChar() == 'P'  || evt.getKeyChar() == 'p' ) {
                         fig.add(new Polygon(x2Point,y2Point,5,r,g,b,r2,g2,b2));
@@ -178,6 +181,7 @@ class ListFrame extends JFrame {
                     }
                      else if ((evt.getKeyChar() == 'L'  || evt.getKeyChar() == 'l' ) && focus!=null) {
                         fig.add(new Losang(x,y,w,h,r,g,b,r2,g2,b2));
+                        focus=fig.get(fig.size()-1);
                     }
                     else if ((evt.getKeyChar() == 'C'  || evt.getKeyChar() == 'c') &&focus!=null ) {
                         Scanner sc = new Scanner(System.in);
