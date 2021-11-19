@@ -91,6 +91,7 @@ class ListFrame extends JFrame {
                     rgb[1]=0;
                     rgb[2]=0;
                     focus.set_contorno(rgb);
+                    Collections.swap(fig,indx,fig.size()-1);
                   }
                   repaint();
                   for (Button but: buton) {
